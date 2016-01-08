@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hib-maven-frame"
+  id="myeclipse.1452156828912"
+  context-root="/basic"
+  j2ee-spec="6.0"
+  archive="hib-maven-frame.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
