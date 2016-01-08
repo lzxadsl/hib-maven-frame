@@ -77,6 +77,15 @@
 	            <prop key="hibernate.hbm2ddl.auto">update</prop>
 	            <prop key="hibernate.show_sql">true</prop>
 	            <prop key="hibernate.format_sql">true</prop>
+	            <!--
+	            使用openSession需手工开启事物
+	            使用getCurrentSession()时才需要配置如下选项来开启事物，
+	            跟spring结合后，则使用 @Transactional来开启事物
+	            如果使用的是本地事务（jdbc事务,只支持单库）
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				如果使用的是全局事务（jta事务，支持多库）
+				<prop key="hibernate.current_session_context_class">jta</prop>
+				-->
  			</props>
  		</property>
  		<!-- <property name="annotatedClasses">
@@ -84,6 +93,7 @@
 	            <value>ne.springmvc.entity.User</value>
 	        </list>
  		</property> -->
+ 		
  		<property name="packagesToScan" value="com.lzx..**.*"> </property>
  	</bean>
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >  

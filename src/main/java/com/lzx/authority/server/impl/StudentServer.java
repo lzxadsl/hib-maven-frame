@@ -22,6 +22,7 @@ public class StudentServer implements IStudentServer {
 	private SessionFactory sessionFactory;
 	
 	private Session getSession() {
+		//使用getCurrentSession时，必须开启事物，否则会报错
 		return sessionFactory.getCurrentSession();
 	}
 
@@ -35,9 +36,15 @@ public class StudentServer implements IStudentServer {
 	@Transactional
 	public void add() {
 		Student stu = new Student();
-		stu.setName("李智贤");
+		stu.setName("李智贤0");
 		stu.setSex("男");
 		getSession().save(stu);
+		
+		/*Student stu1 = new Student();
+		stu1.setName("李智贤");
+		stu1.setSex("男");
+		getSession().save(stu1);*/
+		//throw new RuntimeException("出错啦，事物要回滚...");
 	}
 
 }
