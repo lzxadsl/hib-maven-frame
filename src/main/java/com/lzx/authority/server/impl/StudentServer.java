@@ -44,7 +44,7 @@ public class StudentServer implements IStudentServer {
 		stu1.setName("李智贤");
 		stu1.setSex("男");
 		getSession().save(stu1);*/
-		//throw new RuntimeException("出错啦，事物要回滚...");
+		throw new RuntimeException("出错啦，事物要回滚...");
 	}
 
 }

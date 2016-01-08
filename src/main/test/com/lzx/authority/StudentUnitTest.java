@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lzx.authority.server.IStudentServer;
+import com.lzx.authority.server.IUserServer;
+import com.lzx.basic.server.impl.BaseServer;
 
 
 /**
@@ -20,9 +22,14 @@ public class StudentUnitTest {
 
 	@Autowired
 	private IStudentServer studentServer;
-	
+	@Autowired
+	private IUserServer userServer;
+	@Autowired
+	private BaseServer baseServer;
 	@Test
 	public void test(){
 		studentServer.add();
+		userServer.add();
+		System.out.println(baseServer.getUsername());
 	}
 }
