@@ -9,4 +9,6 @@ package com.lzx.authority.server;
 public interface IStudentServer {
 
 	public void add();
+	public void query();
+	public void find();
 }

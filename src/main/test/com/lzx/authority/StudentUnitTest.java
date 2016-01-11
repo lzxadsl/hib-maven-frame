@@ -28,8 +28,9 @@ public class StudentUnitTest {
 	private BaseServer baseServer;
 	@Test
 	public void test(){
-		studentServer.add();
-		userServer.add();
-		System.out.println(baseServer.getUsername());
+		//studentServer.add();
+		//userServer.add();
+		//studentServer.query();
+		studentServer.find();
 	}
 }

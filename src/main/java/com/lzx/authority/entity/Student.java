@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  * 
  * @author LiZhiXian
@@ -13,6 +16,7 @@ import javax.persistence.Id;
  * @date 2016-1-7 下午2:47:58
  */
 @Entity
+@Cache(region="defaultCache", usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Student {
 
 	@Id

@@ -87,12 +87,19 @@
 				如果使用的是全局事务（jta事务，支持多库）
 				<prop key="hibernate.current_session_context_class">jta</prop>
 				-->
-				<!-- hibernate4.x -->
+				<!-- hibernate4.x 默认配置就是这个了
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
-				<!--缓存设置改为
-				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>
-				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
- 				-->
+				-->
+				<!-- 开启查询缓存 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!-- 开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 高速缓存提供程序 -->
+				<!-- 由于spring也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+				<!--设置二级缓存插件EHCache的Provider类,hibernate3.x
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				-->
  			</props>
  		</property>
  		<!-- <property name="annotatedClasses">
